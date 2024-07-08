@@ -1,5 +1,5 @@
 
-FROM node:10-alpine
+FROM node:16-alpine
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -7,9 +7,15 @@ WORKDIR /home/node/app
 
 COPY package*.json ./
 
-COPY src ./
+RUN mkdir src
+COPY src/* ./src
 
-COPY bin ./
+RUN mkdir bin
+COPY bin/* ./bin
+
+RUN ls bin
+
+RUN ls src
 
 USER node
 
@@ -19,4 +25,4 @@ COPY --chown=node:node . .
 
 EXPOSE 3000
 
-CMD [ "node", "000.js" ]
+CMD [ "node", "src/000.js" ]

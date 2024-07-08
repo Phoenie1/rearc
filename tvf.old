@@ -1,0 +1,6 @@
+"vpc-034f7b9fc0249841d"
+:wq
+["subnet-0d3870f7b0f7509d9","subnet-0f34787e991bbb87a","subnet-03ca67c07556fb6ca"]
+
+vpc = "vpc-07b3b56eb39eec320"
+subnets = ["subnet-052a69a8fde09f965","subnet-06ee0e3affba864b4"]
