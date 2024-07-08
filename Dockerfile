@@ -9,12 +9,14 @@ COPY package*.json ./
 
 COPY src ./
 
+COPY bin ./
+
 USER node
 
 RUN npm install
 
 COPY --chown=node:node . .
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD [ "node", "app.js" ]
+CMD [ "node", "000.js" ]
