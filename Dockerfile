@@ -13,9 +13,7 @@ COPY src/* ./src
 RUN mkdir bin
 COPY bin/* ./bin
 
-RUN ls bin
-
-RUN ls src
+ENV SECRET_WORD="TwelveFactor"
 
 USER node
 
