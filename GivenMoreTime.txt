@@ -1,5 +1,7 @@
 Here is a working version of the project.  Weirdly, the finished product does not acknowledge that it is run in a Docker container, even though it is.  The final product runs on ECS in AWS.
 
+One note: in this repo, I am assuming certain elements pre-existing, such as the VPC and subnets, ECR repo, ECS cluster, etc., because it does not make sense to make new instances of these with every application created.
+
 I originally tried to put this together using the container as a Lambda function, but I wasn't able to get the function to respond, so I switched gears and put it into ECS.  This is a plain vanilla implemention with an ALB in front of the ECS service.  It assumes that a VPC with 2 or more properly configured subnets are pre-existing, as are properly configured security groups.  I do it this way, because in my current world, security groups and IAM configurations are dealt with separately from application/service deployment. I also have the Docker build and upload to ECR separate and not in Terraform because Terraform doesn't really have a good solution for dealing with Docker containers - yes, one could use null resources, but all those really do is allow one to implement a shell script in Terraform, which seems an unnecessary middle man.  They should really be dealt with solutions like Packer and/or Artifactory.
 
 Given more time, to make a more complete solution, I would wish to do the following to a "real" application:
