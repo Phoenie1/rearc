@@ -24,4 +24,7 @@ This repo contains the following:
 ## Build
 
 1. Run "aws configure" and follow the instructions to enable the AWS CLI to run in your AWS account.
-1. 
+1. Make sure Docker is running.
+1. Run "docker build ."
+1. Run "docker images" and record the container id of the container
+1. Run "upload_images.sh" followed by the container id recorded above.
