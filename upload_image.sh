@@ -5,10 +5,10 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 508563857051.dkr.ecr.us-east-1.amazonaws.com
+docker login -u AWS -p $(aws ecr get-login-password --region <REGION>) <AWS ACCOUNT ID>.dkr.ecr.<REGION>.amazonaws.com
 
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 508563857051.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region <REGION> | docker login --username AWS --password-stdin <AWS ACCOUNT ID>.dkr.ecr.<REGION>.amazonaws.com
 
-docker tag $1 508563857051.dkr.ecr.us-east-1.amazonaws.com/mkw_test:test
+docker tag $1 <AWS ACCOUNT ID>.dkr.ecr.<REGION>.amazonaws.com/<REPO>:<TAG>
 
-docker push 508563857051.dkr.ecr.us-east-1.amazonaws.com/mkw_test:test
+docker push <AWS ACCOUNT ID>.dkr.ecr.<REGION>.amazonaws.com/<REPO>:<TAG>
